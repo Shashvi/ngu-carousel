@@ -921,7 +921,7 @@ export class NguCarousel<T> extends NguCarouselStore
     const collectIndex = [];
 
     if (direction === 1) {
-      for (let i = start - 1; i < end; i++) {
+      for (let i = Math.ceil(start) - 1; i < end; i++) {
         collectIndex.push(i);
         val = val * 2;
         const viewRef = viewContainer.get(i) as any;
@@ -929,7 +929,7 @@ export class NguCarousel<T> extends NguCarouselStore
         context.animate = { value: true, params: { distance: val } };
       }
     } else {
-      for (let i = end - 1; i >= start - 1; i--) {
+      for (let i = Math.ceil(end) - 1; i >= start - 1; i--) {
         collectIndex.push(i);
         val = val * 2;
         const viewRef = viewContainer.get(i) as any;
